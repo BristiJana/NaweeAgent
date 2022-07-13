@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const DeliveryReqBtn = ({para, number, image}) => {
+const DeliveryReqBtn = ({para, number, image}: any) => {
   return (
     <>
       <SafeAreaView>
@@ -21,7 +21,7 @@ const DeliveryReqBtn = ({para, number, image}) => {
     </>
   );
 };
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: wp('5%'),

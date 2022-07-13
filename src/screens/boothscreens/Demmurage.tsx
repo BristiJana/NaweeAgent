@@ -4,8 +4,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import DummyOrderList from '../Components/DummyOrderList';
-const Demmurage = ({date}) => {
+import DummyOrderList from '../../components/DummyOrderList';
+const Demmurage = ({date}: any) => {
   return (
     <>
       <View style={styles.container}>

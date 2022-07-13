@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 
-const Hello = ({navigation}) => {
+const Hello = ({navigation}: any) => {
   return (
     <>
       <Text

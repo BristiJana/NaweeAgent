@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 // import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const OrderList = ({ListName, Status, date}) => {
+const OrderList = ({ListName, Status, date}: any) => {
   return (
     <>
       <View style={styles.container}>
@@ -18,7 +18,7 @@ const OrderList = ({ListName, Status, date}) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     alignSelf: 'center',
   },

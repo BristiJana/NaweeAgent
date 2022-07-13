@@ -25,7 +25,7 @@ const PendingPickUpDelivery = ({
   phone,
   time,
   locationImage,
-}) => {
+}: any) => {
   return (
     <SafeAreaView>
       <ScrollView>

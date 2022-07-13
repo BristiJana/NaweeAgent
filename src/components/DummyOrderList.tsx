@@ -26,7 +26,7 @@ const DATA = [
   },
 ];
 
-const DummyOrderList = ({deliveryStatus}) => {
+const DummyOrderList = ({deliveryStatus}: any) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>

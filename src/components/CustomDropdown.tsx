@@ -12,7 +12,7 @@ export default function CustomDropdown({
   dropdownHeading,
   itemlist,
   onPress,
-}) {
+}: any) {
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(250, 136, 50, 0.17)',
   },
   rowStyle: {
-   
     borderColor: 'rgba(250, 136, 50, 0.17)',
   },
 });

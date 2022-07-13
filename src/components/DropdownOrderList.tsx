@@ -6,7 +6,7 @@ import {
   CollapseBody,
 } from 'accordion-collapse-react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
-import OrderDropdown from '../Components/OrderDropdown';
+import OrderDropdown from './OrderDropdown';
 import OrderList from './OrderList';
 // import {styles} from 'react-native-element-dropdown/src/components/TextInput/styles';
 
@@ -27,7 +27,7 @@ export default function DropdownOdersList() {
       }}>
       <Collapse
         isExpanded={expanded}
-        onToggle={isExpanded => setexpanded(isExpanded)}>
+        onToggle={(isExpanded: boolean) => setexpanded(isExpanded)}>
         <CollapseHeader>
           <View
             style={{
@@ -56,10 +56,26 @@ export default function DropdownOdersList() {
                   // backgroundColor: 'white',
                 }
               }>
-              <OrderList ListName="AWP7643" Status="(Processing)" date="01/01/2022" />
-              <OrderList ListName="AWP7643" Status="(Processing)" date="01/01/2022" />
-              <OrderList ListName="AWP7643" Status="(Processing)" date="01/01/2022" />
-              <OrderList ListName="AWP7643" Status="(Processing)" date="01/01/2022" />
+              <OrderList
+                ListName="AWP7643"
+                Status="(Processing)"
+                date="01/01/2022"
+              />
+              <OrderList
+                ListName="AWP7643"
+                Status="(Processing)"
+                date="01/01/2022"
+              />
+              <OrderList
+                ListName="AWP7643"
+                Status="(Processing)"
+                date="01/01/2022"
+              />
+              <OrderList
+                ListName="AWP7643"
+                Status="(Processing)"
+                date="01/01/2022"
+              />
             </View>
           </View>
         </CollapseBody>

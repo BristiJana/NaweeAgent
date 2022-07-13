@@ -10,7 +10,7 @@ export default function SwitchTab({
   setactiveTab,
   leftoption,
   rightoption,
-}) {
+}: any) {
   return (
     <View style={styles.container}>
       <HeaderButton
@@ -33,7 +33,7 @@ export default function SwitchTab({
   );
 }
 
-const HeaderButton = props => (
+const HeaderButton = (props: any) => (
   <View>
     <TouchableOpacity
       style={{
@@ -47,7 +47,7 @@ const HeaderButton = props => (
         borderBottomRightRadius: props.left ? 0 : 10,
         borderWidth: 1,
         borderColor: '#fa892e',
-        justifyContent: 'center'
+        justifyContent: 'center',
       }}
       onPress={() => props.setactiveTab(props.text)}>
       <Text

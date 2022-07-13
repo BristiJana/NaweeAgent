@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const OrderDropdown = ({ListName}) => {
+const OrderDropdown = ({ListName}: any) => {
   return (
     <>
       <View style={styles.container}>

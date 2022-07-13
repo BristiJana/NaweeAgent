@@ -155,7 +155,6 @@ export default function Account() {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      
       <FlatList
         style={{
           paddingBottom: 40,
@@ -204,7 +203,7 @@ export default function Account() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     marginLeft: 40,
     marginRight: 40,
@@ -251,7 +250,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 50,
     backgroundColor: ' #FA8832',
-    borderRadius: 10,
     width: 130,
     height: 50,
     borderRadius: 5,
@@ -266,7 +264,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     backgroundColor: ' #FA8832',
-    borderRadius: 10,
   },
   textSign: {
     fontSize: 18,

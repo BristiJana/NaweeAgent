@@ -6,13 +6,13 @@ import {
   StyleSheet,
   SafeAreaView,
   Image,
-  ImageBackground,
 } from 'react-native';
+import CustomButton from '../Components/CustomButton';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-const BoothDropOff = ({agentName, address, locationImage, phoneImg}) => {
+const DropOff = ({agentName, address, locationImage, phoneImg}: any) => {
   return (
     <>
       <SafeAreaView>
@@ -23,7 +23,9 @@ const BoothDropOff = ({agentName, address, locationImage, phoneImg}) => {
           </TouchableOpacity>
           <View style={styles.middleParaContainer}>
             <Text style={styles.middlePara}>
-              {agentName} has accepted your request for emergency drop-off.
+              You have accepted {agentName} your request for emergency drop-off.
+            </Text>
+            <Text style={styles.middlePara}>
               Click on location to reach there.
             </Text>
           </View>
@@ -39,21 +41,21 @@ const BoothDropOff = ({agentName, address, locationImage, phoneImg}) => {
           <TouchableOpacity style={styles.bottomButton}>
             <Text style={styles.bottomButtonText}>COMPLETE DELIVERY</Text>
           </TouchableOpacity>
-          <Image
-            resizeMode="stretch"
-            source={require('../assests/Wave.png')}
-            style={styles.img}
-          />
-          <Image
-            resizeMode="stretch"
-            source={require('../assests/WhiteWave.png')}
-          />
         </View>
+        <Image
+          resizeMode="stretch"
+          source={require('../assests/Wave.png')}
+          style={styles.img}
+        />
+        <Image
+          resizeMode="stretch"
+          source={require('../assests/WhiteWave.png')}
+        />
       </SafeAreaView>
     </>
   );
 };
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {marginTop: wp('6%')},
   btn: {
     width: wp('80%'),
@@ -78,14 +80,15 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('12%'),
   },
   middlePara: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '400',
     color: '#FA8832',
+    width: wp('76%'),
   },
   locationBtn: {
     width: wp('80%'),
     height: hp('6%'),
-    marginTop: wp('6%'),
+    marginTop: wp('3%'),
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderWidth: 1,
@@ -117,13 +120,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '400',
   },
-  bottomBtn: {
-    marginTop: wp('80%'),
-  },
-  img: {
-    width: wp('100%'),
-    marginTop: wp('2%'),
-  },
+
   bottomButton: {
     // borderWidth: 1,
     width: wp('50%'),
@@ -133,8 +130,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: wp('25%'),
+    marginTop: wp('80%'),
     position: 'relative',
     top: wp('10%'),
+  },
+  img: {
+    width: wp('100%'),
+    marginTop: wp('2%'),
   },
   bottomButtonText: {
     fontSize: 16,
@@ -142,4 +144,4 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
-export default BoothDropOff;
+export default DropOff;

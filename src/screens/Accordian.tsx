@@ -5,10 +5,15 @@ import {
   CollapseHeader,
   CollapseBody,
 } from 'accordion-collapse-react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome';
 import DropHeader from '../Components/DropHeader';
 
-export default function ExpandableText({HeaderText, BodyText}) {
+export default function ExpandableText({
+  HeaderText,
+  BodyText,
+}: {
+  HeaderText: string;
+  BodyText: string;
+}) {
   const [expanded, setexpanded] = useState(false);
 
   return (
@@ -16,7 +21,7 @@ export default function ExpandableText({HeaderText, BodyText}) {
       <View style={{}}>
         <Collapse
           isExpanded={expanded}
-          onToggle={isExpanded => setexpanded(isExpanded)}>
+          onToggle={(isExpanded: boolean) => setexpanded(isExpanded)}>
           <CollapseHeader>
             <View
             //   style={{
@@ -34,9 +39,7 @@ export default function ExpandableText({HeaderText, BodyText}) {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 paddingVertical: 20,
-              }}>
-              
-            </View>
+              }}></View>
           </CollapseBody>
         </Collapse>
       </View>
