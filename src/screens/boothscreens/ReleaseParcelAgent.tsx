@@ -12,7 +12,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import SwitchTab from '../Components/SwitchTab';
+import SwitchTab from '../../Components/SwitchTab';
 
 const ReleaseParcelAgent = ({}) => {
   const [activeTab, setActiveTab] = useState('Agent');

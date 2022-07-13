@@ -15,7 +15,7 @@ const DeliveryDetails = ({
   parcelType,
   description,
   cname,
-}) => {
+}: any) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -98,7 +98,7 @@ const DeliveryDetails = ({
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   upperSection: {
     backgroundColor: '#FA8832',
     height: hp('13%'),
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     padding: wp('1%'),
   },
   ParcelHeadingText: {
-    fontSize: 15
+    fontSize: 15,
   },
   detailsContainer: {
     flexDirection: 'row',

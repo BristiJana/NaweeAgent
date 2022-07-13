@@ -12,7 +12,7 @@ export default function CustomDropdownSmall({
   itemlist,
   onPress,
   dropdownName,
-}) {
+}: any) {
   return (
     <SafeAreaView>
       <View style={styles.container}>

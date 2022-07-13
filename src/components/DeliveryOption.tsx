@@ -13,7 +13,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const DeliveryOption = ({image, deliveryStatus, noOfDeliveries}) => {
+const DeliveryOption = ({image, deliveryStatus, noOfDeliveries}: any) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>

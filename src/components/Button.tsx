@@ -12,7 +12,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const Button = ({btnText}) => {
+const Button = ({btnText}: any) => {
   return (
     <>
       <SafeAreaView>
@@ -33,7 +33,7 @@ const Button = ({btnText}) => {
     </>
   );
 };
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     marginHorizontal: wp('12%'),
     // marginTop: hp('2%'),

@@ -6,7 +6,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const HomeCard = ({para, requestNo, picture}) => {
+const HomeCard = ({para, requestNo, picture}: any) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -29,7 +29,7 @@ const HomeCard = ({para, requestNo, picture}) => {
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     marginTop: hp('5%'),
     marginHorizontal: wp('10%'),
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    paddingHorizontal: wp('2%')
+    paddingHorizontal: wp('2%'),
   },
   request: {
     color: '#FA8832',

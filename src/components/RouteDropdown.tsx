@@ -32,7 +32,7 @@ export default function dropDown() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   dropDown: {
     width: wp('80%'),
     marginHorizontal: wp('10%'),

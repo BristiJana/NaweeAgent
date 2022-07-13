@@ -8,7 +8,7 @@ export default function CustomButton({
   fontcolor,
   width,
   onPress,
-}) {
+}: any) {
   return (
     <TouchableOpacity
       style={{

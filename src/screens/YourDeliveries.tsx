@@ -73,7 +73,7 @@ const YourDeliveries = () => {
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {},
   bgImage: {
     width: wp('100%'),

@@ -13,7 +13,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import SwitchTab from '../Components/SwitchTab';
+import SwitchTab from '../../Components/SwitchTab';
 
 const ReParcelAgent = ({
   weight,
@@ -29,7 +29,7 @@ const ReParcelAgent = ({
   email,
   pickup,
   agentId,
-}) => {
+}: any) => {
   const [activeTab, setActiveTab] = useState('Agent');
   return (
     <SafeAreaView style={styles.container}>
@@ -161,7 +161,7 @@ const ReParcelAgent = ({
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     marginTop: wp('5%'),
   },

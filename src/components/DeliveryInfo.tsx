@@ -13,7 +13,7 @@ const DeliveryInfo = ({
   ReceiverArea,
   ReceiverState,
   description,
-}) => {
+}:any) => {
   return (
     <>
       <SafeAreaView>
