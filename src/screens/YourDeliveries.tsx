@@ -7,7 +7,7 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
-import DeliveryOption from '../Components/DeliveryOption';
+import DeliveryOption from '../components/DeliveryOption';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -18,11 +18,11 @@ const YourDeliveries = () => {
     <SafeAreaView>
       <View style={styles.container}>
         <ImageBackground
-          source={require('../assests/upperWhiteWave.png')}
+          source={require('../assets/upperWhiteWave.png')}
           style={styles.bgImageWhite}
           resizeMode="stretch">
           <Image
-            source={require('../assests/Subtract.png')}
+            source={require('../assets/Subtract.png')}
             style={styles.bgImage}
             resizeMode="stretch"
           />
@@ -34,7 +34,7 @@ const YourDeliveries = () => {
             image={
               <Image
                 style={styles.imgStyle}
-                source={require('../assests/pickup.png')}
+                source={require('../assets/pickup.png')}
               />
             }
           />
@@ -44,7 +44,7 @@ const YourDeliveries = () => {
             image={
               <Image
                 style={styles.imgStyle}
-                source={require('../assests/ongoing.png')}
+                source={require('../assets/ongoing.png')}
               />
             }
           />
@@ -54,19 +54,19 @@ const YourDeliveries = () => {
             image={
               <Image
                 style={styles.imgStyle}
-                source={require('../assests/completed.png')}
+                source={require('../assets/completed.png')}
               />
             }
           />
         </View>
         <Image
           resizeMode="stretch"
-          source={require('../assests/Wave.png')}
+          source={require('../assets/Wave.png')}
           style={styles.img}
         />
         <Image
           resizeMode="stretch"
-          source={require('../assests/WhiteWave.png')}
+          source={require('../assets/WhiteWave.png')}
           style={styles.whiteImg}
         />
       </View>
