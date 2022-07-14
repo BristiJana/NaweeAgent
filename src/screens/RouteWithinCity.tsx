@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import CustomDropdown from '../Components/CustomDropdown';
+import CustomDropdown from '../components/CustomDropdown';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -52,12 +52,12 @@ const RouteWithinCity = () => {
       </TouchableOpacity>
       <Image
         resizeMode="stretch"
-        source={require('../assests/Wave.png')}
+        source={require('../assets/Wave.png')}
         style={styles.img}
       />
       <Image
         resizeMode="stretch"
-        source={require('../assests/WhiteWave.png')}
+        source={require('../assets/WhiteWave.png')}
         style={styles.whiteImg}
       />
     </SafeAreaView>

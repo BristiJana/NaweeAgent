@@ -4,13 +4,13 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import DummyOrderList from '../Components/DummyOrderList';
+import DummyOrderList from '../components/DummyOrderList';
 const CompletedDeliveries = () => {
   return (
     <>
       <View style={styles.container}>
         <ImageBackground
-          source={require('../assests/background.png')}
+          source={require('../assets/background.png')}
           resizeMode="contain"
           imageStyle={styles.bgImage}
           style={styles.image}>

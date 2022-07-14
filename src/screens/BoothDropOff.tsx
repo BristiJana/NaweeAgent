@@ -41,12 +41,12 @@ const BoothDropOff = ({agentName, address, locationImage, phoneImg}: any) => {
           </TouchableOpacity>
           <Image
             resizeMode="stretch"
-            source={require('../assests/Wave.png')}
+            source={require('../assets/Wave.png')}
             style={styles.img}
           />
           <Image
             resizeMode="stretch"
-            source={require('../assests/WhiteWave.png')}
+            source={require('../assets/WhiteWave.png')}
           />
         </View>
       </SafeAreaView>
