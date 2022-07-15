@@ -5,7 +5,7 @@ import React from 'react';
 // import {SafeAreaProvider} from 'react-native-safe-area-context';
 // import * as eva from '@eva-design/eva';
 // import {ApplicationProvider} from '@ui-kitten/components';
-import Route from './src/screens/Route';
+import RouteWithinCity from './src/screens/RouteWithinCity';
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
     //   </ApplicationProvider>
     // </Provider>
     <>
-      <Route />
+      <RouteWithinCity />
     </>
   );
 }
