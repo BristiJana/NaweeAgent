@@ -11,21 +11,22 @@ import CustomButton from '../../components/CustomButton';
 
 export default function DeliveryPin() {
   return (
-    <SafeAreaView>
+    <SafeAreaView
+      style={{backgroundColor: '#fffbf8', marginVertical: hp('15%')}}>
       <View style={styles.card}>
-        <Key width={'100%'} height={'70%'} style={styles.animation} />
+        <Key  />
         <Text style={styles.subtext}> Enter your delivery pin</Text>
         <View style={styles.animation}>
-        <OtpInput />
-        <View style={{marginTop:hp('5%')}}>
-          <CustomButton
-            name="OK"
-            bgcolor="#fa8832"
-            fontcolor="white"
-            height={hp('6%')}
-            width={wp('30%')}
-          />
-        </View>
+          <OtpInput />
+          <View style={{marginTop: hp('3%')}}>
+            <CustomButton
+              name="OK"
+              bgcolor="#fa8832"
+              fontcolor="white"
+              height={hp('6%')}
+              width={wp('30%')}
+            />
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -35,23 +36,23 @@ export default function DeliveryPin() {
 const styles = StyleSheet.create({
   card: {
     height: hp('60%'),
-    width: wp('90%'),
+    width: wp('80%'),
     elevation: 10,
     backgroundColor: 'white',
     borderRadius: 20,
     flexDirection: 'column',
-    marginTop: hp('5%'),
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   animation: {
-    width: '80%',
+    width: '90%',
     alignSelf: 'center',
-    paddingTop: 20,
+    paddingTop: hp('2%'),
   },
   subtext: {
-    fontSize: wp('4%'),
+    fontSize: wp('4.5%'),
     fontWeight: '400',
     marginVertical: hp('1%'),
+    marginTop: hp('12%'),
     textAlign: 'center',
     color: '#fa8832',
   },

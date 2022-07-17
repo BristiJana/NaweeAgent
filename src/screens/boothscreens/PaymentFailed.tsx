@@ -12,7 +12,7 @@ import PaymentIcon from '../../components/icons/PaymentFail';
 export default function PaymentFailed() {
   return (
     <SafeAreaView
-      style={{flex: 1, marginHorizontal: wp('3%'), marginBottom: hp('2%')}}>
+      style={{flex: 1, backgroundColor:'#fffbf8'}}>
       <View style={styles.container}>
         <View style={{marginBottom: hp('2%')}}>
           <PaymentIcon  />
@@ -23,7 +23,7 @@ export default function PaymentFailed() {
           , it will be refunded automatically in 5-7 working days.
         </Text>
         <Text style={styles.subtext}>Payment ID: MJHF76754RF</Text>
-        <View style={{marginBottom:hp('5%')}}>
+        <View style={{marginBottom:hp('6%'),marginTop:hp('2%')}}>
             <Text style={{textAlign:'center'}}>Why did it fail?</Text>
             <Text style={{textAlign:'center'}}>1)The CVV or Expiry Date might be wrong.</Text>
             <Text style={{textAlign:'center'}}>2) Your Bank Network might be down.</Text>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    marginTop: hp('15%'),
+    marginTop: hp('12%'),
     marginBottom: hp('1%'),
   },
   thanku: {
@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#fa8832',
     textAlign: 'center',
+    marginBottom:hp('6%'),
+    marginTop:hp('4%'),
   },
   subtext: {
     fontSize: wp('3.5%'),
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
     color: '#fa8832',
     textAlign: 'center',
     marginHorizontal: wp('5%'),
-    marginBottom: hp('1%'),
+    marginBottom: hp('3%')
   },
   card: {
     marginHorizontal: wp('2%'),

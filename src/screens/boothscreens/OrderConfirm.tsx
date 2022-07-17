@@ -11,7 +11,7 @@ import CustomButton from '../../components/CustomButton';
 export default function OrderConfirm() {
   return (
     <SafeAreaView
-      style={{flex: 1, marginHorizontal: wp('3%'), marginVertical: hp('2%')}}>
+      style={{flex: 1, marginHorizontal: wp('3%'), marginVertical: hp('2%'),backgroundColor:'#fffbf8'}}>
       <View style={styles.container}>
         <View style={{marginBottom: hp('2%'), }}>
           <OrderSvg />
