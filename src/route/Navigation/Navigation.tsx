@@ -21,14 +21,14 @@ import ReceiveParcelAgent from '../../screens/ReceiveParcelAgent';
 import SendParcel from '../../screens/Parcel/SendParcel';
 import ReceivedParcel from '../../screens/Parcel/ReceivedParcel';
 import CancelledParcel from '../../screens/Parcel/CancelledParcel';
-import Demmurage from '../../screens/Parcel/Demmurage';
+import ReleasedParcel from '../../screens/Parcel/ReleasedParcel';
 
 const stack = createNativeStackNavigator();
 
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="signIn">
+      <stack.Navigator initialRouteName="receiveParcelAgent">
         <stack.Screen
           name="signIn"
           component={SignIn}
@@ -166,8 +166,8 @@ const Navigation = () => {
           }}
         />
         <stack.Screen
-          name="demmurage"
-          component={Demmurage}
+          name="releasedParcel"
+          component={ReleasedParcel}
           options={{
             headerShown: false,
             contentStyle: {backgroundColor: colors.primary.light},

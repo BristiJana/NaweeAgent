@@ -22,7 +22,7 @@ const inputFieldData: {
   {
     key: 'gender',
     name: 'sex',
-    options: ['Male', 'Female', 'Other', 'Prefer not to say'],
+    options: ['Male', 'Female', 'Other'],
   },
   {key: 'address', name: 'address'},
   {key: 'landmark', name: 'landmark'},
@@ -30,7 +30,7 @@ const inputFieldData: {
   {
     key: 'state',
     name: 'state/province',
-    options: ['state1', 'state2', 'state3'],
+    options: ['state1', 'Nasarawa', 'state2', 'state3'],
   },
   {key: 'zipcode', name: 'zip/postal code'},
   {
@@ -47,8 +47,9 @@ const PersonalInfo: React.FC<{navigation: any}> = ({navigation}) => {
 
   const submitSignInForm = async () => {
     try {
-      postSignUpForm();
-      navigation.navigate('guarantorInfo');
+      const res = await postSignUpForm();
+      console.log('response', res);
+      navigation.navigate('signIn');
     } catch (err) {
       console.log(err);
     }
