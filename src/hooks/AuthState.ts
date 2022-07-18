@@ -27,6 +27,7 @@ const useAuthState = () => {
 
   const handleFormValidation = (name: string, value: string) => {
     let error = '';
+
     if (name === 'email') {
       if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(value)) {
         error = 'Invalid Email';
@@ -129,6 +130,7 @@ const useAuthState = () => {
     }
     return error;
   };
+
   const formFinalValidation = (form: {
     [key: string]: {
       error: string;
@@ -148,6 +150,7 @@ const useAuthState = () => {
       const key = mainKey as keyof typeof formCopy;
 
       formCopy[key].error = err;
+
       if (err) {
         error = true;
       }
@@ -218,13 +221,15 @@ const useAuthState = () => {
       const key = mainKey as keyof typeof signInForm;
       data[key] = mainValue.text;
     }
+
     return data;
   };
   const extractSignUpFormData = () => {
     const data: {[key: string]: string | number} = {};
+    const numberData = ['zipcode', 'latitude', 'longitude'];
     for (const [mainKey, mainValue] of Object.entries(signUpForm)) {
       const key = mainKey as keyof typeof signUpForm;
-      data[key] = mainValue.text;
+      data[key] = numberData.includes(key) ? +mainValue.text : mainValue.text;
     }
     return data;
   };
@@ -265,7 +270,6 @@ const useAuthState = () => {
 
   const postSignInForm = async () => {
     try {
-      console.log('btn clicked');
       const {error, formCopy} = formFinalValidation(signInForm);
       const formCopyData = formCopy as typeof signInForm;
 
@@ -277,7 +281,9 @@ const useAuthState = () => {
       const data = extractSignInFormData();
 
       console.log('data', data);
+
       const res = await Auth.signIn(data);
+      console.log('response', res);
       if (res.status !== 200) {
         throw new Error(res);
       }
@@ -288,25 +294,27 @@ const useAuthState = () => {
     }
   };
   const postSignUpForm = async () => {
-    const {error, formCopy} = formFinalValidation(signUpForm);
-    const formCopyData = formCopy as typeof signUpForm;
-
-    if (error) {
-      setSignUpForm(formCopyData);
-      throw new Error('Invalid or Incomplete Form Fields...');
-    }
-
-    const data = extractSignUpFormData();
-    const {email} = data;
-    console.log('email', email);
-    dispatch(signInDetailActions.updateEmail({email: `${email}`}));
-    console.log('extractedData', data);
-    // const res = await Auth.signUp(data);
-    // if (res.status !== 200) {
-    //   throw new Error(res);
-    // }
-    // console.log('signup res', res);
     try {
+      const {error, formCopy} = formFinalValidation(signUpForm);
+      const formCopyData = formCopy as typeof signUpForm;
+
+      if (error) {
+        setSignUpForm(formCopyData);
+        throw new Error('Invalid or Incomplete Form Fields...');
+      }
+
+      const data = extractSignUpFormData();
+      const {email} = data;
+      console.log('email', email);
+      dispatch(signInDetailActions.updateEmail({email: `${email}`}));
+      console.log('extractedData', data);
+      const res = await Auth.signUp(data);
+      console.log('response', res);
+      if (res.status !== 200) {
+        throw new Error(res);
+      }
+      console.log('signup res', res);
+      return res;
     } catch (err: any) {
       throw new Error(err);
     }

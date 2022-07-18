@@ -2,14 +2,16 @@ import Layout from '../components/partials/Layout';
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {colors} from '../../assets/color';
-import Button from '../components/partials/Button';
+
 const userImg = require('../../assets/img/user-1.png');
+
+const todayDate = `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`;
 
 const dummyData = [
   {
-    date: 'today',
+    date: todayDate,
     name: 'Mr. Vincent',
-    text: 'Mr. Vincent is on his way to drop-off a parcel.',
+    text: 'Mr. Vincent is on his way to drop-off a parcel. Share PIN with your Agent- 2205',
     time: '11 AM',
     image: userImg,
     status: 'not accepted',
@@ -17,7 +19,7 @@ const dummyData = [
   {
     date: '05/02/2022',
     name: 'Mr. Vincent',
-    text: 'Mr. Vincent is on his way to drop-off a parcel, Vincent is on his way to drop-off a parcel.',
+    text: 'You accepted Emergency Drop off from Mr. Vincent',
     time: '11 AM',
     image: userImg,
     status: 'accepted',
@@ -25,7 +27,7 @@ const dummyData = [
   {
     date: '06/07/2022',
     name: 'Mr. Vincent',
-    text: 'Mr. Vincent is on his way to drop-off a parcel.',
+    text: 'You accepted Emergency Drop off request from Mr. Vincent',
     time: '11 AM',
     image: userImg,
     status: 'accepted',
@@ -54,7 +56,12 @@ const ReqCard: React.FC<{
       <View style={styles.cardTextContainer}>
         <View style={styles.nameContainer}>
           <Text style={styles.userName}>{data.name}</Text>
-          <Text style={styles.timeText}>{data.time}</Text>
+          <View style={styles.dateContainer}>
+            <Text style={styles.timeText}>{data.time}</Text>
+            {data.date !== todayDate && (
+              <Text style={styles.dateText}>{data.date}</Text>
+            )}
+          </View>
         </View>
 
         <Text style={styles.text}>{data.text}</Text>
@@ -73,10 +80,9 @@ const HomeEmergencyDropoff = () => {
 
         {dummyData.map((item, i) => {
           return (
-            item.date === 'today' && (
+            item.date === todayDate && (
               <View key={i} style={styles.reqContaier}>
                 <ReqCard data={item} />
-                <Button width={111}>ACCEPT</Button>
               </View>
             )
           );
@@ -86,7 +92,7 @@ const HomeEmergencyDropoff = () => {
 
         {dummyData.map((item, i) => {
           return (
-            item.date !== 'today' && (
+            item.date !== todayDate && (
               <ReqCard data={item} style={styles.acceptedReq} key={i} />
             )
           );
@@ -149,9 +155,19 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 12,
+    fontWeight: '400',
+  },
+  dateText: {
+    fontSize: 12,
+    marginLeft: 7,
+    fontWeight: '400',
+  },
+  dateContainer: {
+    flexDirection: 'row',
   },
   text: {
     fontSize: 12,
     fontWeight: '500',
+    paddingRight: 5,
   },
 });

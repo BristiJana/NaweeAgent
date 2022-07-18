@@ -19,7 +19,7 @@ const SendParcel = () => {
     <>
       <ScrollView>
         <Layout
-          navHeading="Send Parcel"
+          navHeading="Sent Parcel"
           navIcon={<NotificationBell />}
           innerContainerStyle={styles.container}>
           {data.map((item, i) => {

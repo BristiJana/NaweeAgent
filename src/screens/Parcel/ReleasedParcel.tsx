@@ -25,14 +25,54 @@ const data: {
       },
     ],
   },
+  {
+    date: '09 May 2022',
+    data: [
+      {
+        name: 'AB123456',
+        time: '10:20AM',
+        message: 'Sent on 10 Feb 2021, 10:20AM',
+      },
+      {
+        name: 'AB123456',
+        time: '10:20AM',
+        message: 'Sent on 10 Feb 2021, 10:20AM',
+      },
+    ],
+  },
+  {
+    date: '01 June 2022',
+    data: [
+      {
+        name: 'AB123456',
+        time: '10:20AM',
+        message: 'Sent on 10 Feb 2021, 10:20AM',
+      },
+      {
+        name: 'AB123456',
+        time: '10:20AM',
+        message: 'Sent on 10 Feb 2021, 10:20AM',
+      },
+      {
+        name: 'AB123456',
+        time: '10:20AM',
+        message: 'Sent on 10 Feb 2021, 10:20AM',
+      },
+      {
+        name: 'AB123456',
+        time: '10:20AM',
+        message: 'Sent on 10 Feb 2021, 10:20AM',
+      },
+    ],
+  },
 ];
 
-const Demmurage = () => {
+const ReleasedParcel = () => {
   return (
     <>
       <ScrollView>
         <Layout
-          navHeading="Demmurage"
+          navHeading="Released Parcel"
           navIcon={<NotificationBell />}
           innerContainerStyle={styles.container}>
           {data.map((parcel, i) => {
@@ -58,7 +98,7 @@ const Demmurage = () => {
     </>
   );
 };
-export default Demmurage;
+export default ReleasedParcel;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,15 +1,15 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import Nav from '../components/partials/Nav';
+
 // import img from '../assets/img/account-created-img.png';
 const img = require('../../assets/img/account-created-img.png');
 import Button from '../components/partials/Button';
 import {colors} from '../../assets/color';
+import Layout from '../components/partials/Layout';
 
 const SuccessScreen: React.FC<{navigation: any}> = ({navigation}) => {
   return (
-    <View style={styles.container}>
-      <Nav navigation={navigation} heading={'SIGN UP'} hideIcon />
+    <Layout navHeading="SIGN UP" navigation={navigation} hideIcon>
       <View style={styles.card}>
         <Image source={img} style={styles.img} />
         <Text style={styles.successHeading}>Success..!!!</Text>
@@ -19,7 +19,7 @@ const SuccessScreen: React.FC<{navigation: any}> = ({navigation}) => {
         </Text>
         <Button width={130}>OK</Button>
       </View>
-    </View>
+    </Layout>
   );
 };
 
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   card: {
-    width: '75%',
     alignItems: 'center',
     marginTop: 110,
     backgroundColor: '#fff',

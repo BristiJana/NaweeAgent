@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 import Input from '../components/partials/Input';
