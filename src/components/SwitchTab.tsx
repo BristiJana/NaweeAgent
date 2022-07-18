@@ -39,8 +39,8 @@ const HeaderButton = (props: any) => (
       style={{
         backgroundColor: props.activeTab === props.text ? '#fa892e' : 'white',
         height: hp('5.5%'),
-        width: wp('40%'),
-        paddingHorizontal: wp('9%'),
+        flex:1,
+        paddingHorizontal: wp('6%'),
         borderTopLeftRadius: props.left ? 10 : 0,
         borderBottomLeftRadius: props.left ? 10 : 0,
         borderTopRightRadius: props.left ? 0 : 10,
@@ -49,7 +49,8 @@ const HeaderButton = (props: any) => (
         borderColor: '#fa892e',
         justifyContent: 'center',
       }}
-      onPress={() => props.setactiveTab(props.text)}>
+      onPress={() => props.setactiveTab(props.text)}
+      disabled={props.activeTab === props.text ? true : false}>
       <Text
         style={{
           color: props.activeTab === props.text ? 'white' : '#fa892e',

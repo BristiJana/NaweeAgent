@@ -1,3 +1,4 @@
+import {colors} from '../../../assets/color';
 import React, {useState, useEffect} from 'react';
 
 import {
@@ -12,6 +13,7 @@ import {
 } from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 import Aicon from 'react-native-vector-icons/AntDesign';
+import Profileheader from '../../components/icons/Profileheader';
 
 const data = [
   {label: 'Item 1', value: '1'},
@@ -155,16 +157,24 @@ export default function Account() {
 
   return (
     <SafeAreaView style={{flex: 1}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          paddingHorizontal: '4%',
+          maxWidth: '100%',
+        }}>
+        <Profileheader />
+        <Text style={styles.header}>Dummy Booth 1</Text>
+      </View>
       <FlatList
         style={{
           paddingBottom: 40,
-          marginLeft: 40,
-          marginRight: 40,
-          marginBottom: 100,
+          marginHorizontal: '8%',
+          marginVertical: '5%',
         }}
         data={info}
         renderItem={({item}) => (
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between',paddingHorizontal:'1%'}}>
             <Text style={item.val === 1 ? styles.item : styles.itemSelected}>
               {item.name}
             </Text>
@@ -175,7 +185,7 @@ export default function Account() {
                 name={item.icon}
                 size={20}
                 color="#333333"
-                style={{marginTop: 24, marginRight: 10}}
+                style={{marginRight: '20%', marginTop: '11%'}}
                 onPress={() => {
                   Dropi;
                 }}
@@ -268,5 +278,12 @@ const styles: any = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  header: {
+    color: colors.primary.main,
+    textAlignVertical: 'center',
+    paddingHorizontal: '8%',
+    fontSize: 19,
+    fontWeight: '600',
   },
 });
