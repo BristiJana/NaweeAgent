@@ -282,6 +282,7 @@ const useAuthState = () => {
 
       console.log('data', data);
 
+      // const res = await Auth.signIn(data);
       const res = await Auth.signIn(data);
       console.log('response', res);
       if (res.status !== 200) {
