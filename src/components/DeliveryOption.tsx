@@ -20,7 +20,7 @@ const DeliveryOption = ({image, deliveryStatus, noOfDeliveries}: any) => {
         <TouchableOpacity style={styles.btn}>
           <ImageBackground
             style={styles.btnBack}
-            source={require('../assests/DeliveryBg.png')}>
+            source={require('../assets/DeliveryBg.png')}>
             {image}
           </ImageBackground>
           <Text style={styles.deliveryStatus}>

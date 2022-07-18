@@ -7,7 +7,6 @@ import {
   SafeAreaView,
   Image,
 } from 'react-native';
-import CustomButton from '../Components/CustomButton';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -44,12 +43,12 @@ const DropOff = ({agentName, address, locationImage, phoneImg}: any) => {
         </View>
         <Image
           resizeMode="stretch"
-          source={require('../assests/Wave.png')}
+          source={require('../assets/Wave.png')}
           style={styles.img}
         />
         <Image
           resizeMode="stretch"
-          source={require('../assests/WhiteWave.png')}
+          source={require('../assets/WhiteWave.png')}
         />
       </SafeAreaView>
     </>
@@ -136,7 +135,7 @@ const styles: any = StyleSheet.create({
   },
   img: {
     width: wp('100%'),
-    marginTop: wp('2%'),
+    marginTop: wp('4%'),
   },
   bottomButtonText: {
     fontSize: 16,

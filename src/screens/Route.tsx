@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import CustomDropdown from '../Components/CustomDropdown';
-import CustomDropdownSmall from '../Components/CustomDropdownSmall';
+import CustomDropdown from '../components/CustomDropdown';
+// import CustomDropdownSmall from '../Components/CustomDropdownSmall';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Wave from '../components/Wave';
 
 const Route = () => {
   return (
@@ -28,50 +29,37 @@ const Route = () => {
           <View style={styles.btn}>
             <Text style={styles.btnText}>From</Text>
           </View>
-          <View style={styles.dropGroup}>
-            <CustomDropdownSmall
-              dropdownHeading="State"
-              itemlist={['Inter-State', 'Within State']}
-              onPress={() => {}}
-              dropdownName="Select State"
-            />
-            <CustomDropdownSmall
-              dropdownHeading="City"
-              itemlist={['Inter-State', 'Within State']}
-              onPress={() => {}}
-              dropdownName="Select City"
-            />
-          </View>
+          <CustomDropdown
+            dropdownHeading="State"
+            itemlist={['Inter-State', 'Within State']}
+            onPress={() => {}}
+            dropdownDefaultName="Inter-State"
+          />
+          <View style={styles.dropGroup}></View>
           <View style={styles.btn}>
             <Text style={styles.btnText}>To</Text>
           </View>
-          <View style={styles.dropGroup}>
-            <CustomDropdownSmall
-              dropdownHeading="State"
-              itemlist={['Inter-State', 'Within State']}
-              onPress={() => {}}
-              dropdownName="Select State"
-            />
-            <CustomDropdownSmall
-              dropdownHeading="City"
-              itemlist={['Inter-State', 'Within State']}
-              onPress={() => {}}
-              dropdownName="Select City"
-            />
-          </View>
+          <CustomDropdown
+            dropdownHeading="State"
+            itemlist={['Inter-State', 'Within State']}
+            onPress={() => {}}
+            dropdownDefaultName="Inter-State"
+          />
+          <View style={styles.dropGroup}></View>
 
           <TouchableOpacity style={styles.bottomBtn}>
             <Text style={styles.bottomBtnText}>Search Delivery Request</Text>
           </TouchableOpacity>
         </View>
+        {/* <Wave waveStyle={styles.wave} /> */}
         <Image
           resizeMode="stretch"
-          source={require('../assests/Wave.png')}
+          source={require('../assets/Wave.png')}
           style={styles.img}
         />
         <Image
           resizeMode="stretch"
-          source={require('../assests/WhiteWave.png')}
+          source={require('../assets/WhiteWave.png')}
           style={styles.whiteImg}
         />
       </SafeAreaView>
@@ -81,6 +69,7 @@ const Route = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: wp('5%'),
+    backgroundColor: '#FFFBF8',
   },
   dropGroup: {
     flexDirection: 'row',
@@ -127,5 +116,10 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     marginTop: wp('52%'),
   },
+  // wave: {
+  //   bottom: '-90%',
+  //   transform: [{rotate: '180deg'}],
+  //   // zIndex: -1,
+  // },
 });
 export default Route;
