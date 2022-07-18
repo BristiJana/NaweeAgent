@@ -16,7 +16,9 @@ export default function CustomDropdown({
   return (
     <SafeAreaView>
       <View style={styles.container}>
+        {dropdownHeading ?(
         <Text style={styles.dropdownHeading}>{dropdownHeading}</Text>
+        ): null}
         <View>
           <SelectDropdown
             data={itemlist}

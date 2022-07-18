@@ -5,7 +5,7 @@ import store from './src/store/store';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import * as eva from '@eva-design/eva';
 import {ApplicationProvider} from '@ui-kitten/components';
-import PaymentFailed from './src/screens/boothscreens/DemurrageOrder';
+import MtoM from './src/screens/MtoM'
 
 export default function App() {
   return (
@@ -13,7 +13,8 @@ export default function App() {
       <ApplicationProvider {...eva} theme={eva.light}>
         <SafeAreaProvider>
           {/* <Navigation /> */}
-          <PaymentFailed />
+
+          <MtoM />
         </SafeAreaProvider>
       </ApplicationProvider>
     </Provider>
