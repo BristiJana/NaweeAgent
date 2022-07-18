@@ -5,7 +5,7 @@ import store from './src/store/store';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import * as eva from '@eva-design/eva';
 import {ApplicationProvider} from '@ui-kitten/components';
-import MtoM from './src/screens/MtoM'
+import MtoM from './src/screens/MtoS'
 
 export default function App() {
   return (

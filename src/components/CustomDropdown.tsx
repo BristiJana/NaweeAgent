@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   btnTextStyle: {
     fontSize: 12,
-    marginRight: wp('53%'),
+    marginRight: wp('40%'),
   },
   iconStyle: {
     // paddingLeft: 5,
