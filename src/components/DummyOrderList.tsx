@@ -40,7 +40,7 @@ const DummyOrderList = ({deliveryStatus}: any) => {
                     <Text style={styles.title}>{item.title}</Text>
                     <Text style={styles.deliveryStatus}>{deliveryStatus}</Text>
                   </View>
-                  <Image source={require('../assests/arrowright.png')} />
+                  <Image source={require('../assets/arrowright.png')} />
                 </TouchableOpacity>
                 <View style={styles.bottomBorder}></View>
               </ScrollView>
