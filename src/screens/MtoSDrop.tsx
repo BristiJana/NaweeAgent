@@ -2,32 +2,36 @@ import {
   View,
   Text,
   ScrollView,
-  TextInput,
-  StyleSheet,
   TouchableOpacity,
+  StyleSheet,
+  TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
 import CheckBox from '@react-native-community/checkbox';
+import Icon from 'react-native-vector-icons/Feather';
 import CustomDropdown from '../components/CustomDropdown';
 import Button from '../components/partials/Button';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {SafeAreaView} from 'react-native-safe-area-context';
-const MtoMDrop: React.FC<{nav?: any}> = ({nav}) => {
+import SafeAreaView from 'react-native-safe-area-view';
+
+const MtoSDrop: React.FC<{nav?: any}> = ({nav}) => {
+  const [selectedparcel, addparcel] = useState(['asd']);
   const [surity, setSurity] = useState(false);
-  const [selectedparcel, addparcel] = useState(['sd']);
+
   return (
     <SafeAreaView style={{height: 'auto'}}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{height: 'auto',backgroundColor:'#fffbf8'}}>
+        contentContainerStyle={{height: 'auto'}}>
         <Text style={styles.header}>Recieve at Booth near your receiver</Text>
         <Text
           style={{
+            flex: 1,
             marginHorizontal: wp('10%'),
-            marginVertical: hp('1%'),
+            marginVertical: hp('1.4%'),
             fontSize: wp('3%'),
             color: '#fa8832',
           }}>
@@ -63,29 +67,57 @@ const MtoMDrop: React.FC<{nav?: any}> = ({nav}) => {
             <Text>Lagos City Centre near bank branch (Booth987) </Text>
           </View>
         </View>
-
+        <Text style={styles.divider}>
+          _____________________________________________________
+        </Text>
         <Text
           style={{
-            fontSize: wp('4.5%'),
-            marginHorizontal: wp('10%'),
-            marginTop: hp('1.5%'),
-            fontWeight: '500',
+            marginHorizontal: 35,
+            marginVertical: 10,
+            fontSize: 17,
+            fontWeight: '600',
           }}>
           Parcel Description
         </Text>
+        <Text
+          style={{
+            marginHorizontal: 35,
+            fontSize: wp('3%'),
+            color: '#fa8832',
+          }}>
+          You can Add upto 5 Parcels to 1 receiver.
+        </Text>
+        {selectedparcel.length != 0 ? (
+          <>
+            <TouchableOpacity
+              style={styles.parcels}
+              onPress={() => nav.navigate('MtoSP', {name: 'MtoSP'})}>
+              <Text>Your Parcels({selectedparcel.length})</Text>
+              <Icon name="chevron-right" size={24} color="#fa8832" />
+            </TouchableOpacity>
+          </>
+        ) : null}
         <CustomDropdown
-          buttonWidth="80%"
+          buttonWidth={wp('80%')}
           itemlist={[
             '0-5Kg (Light)',
             '5-20kg (Medium)',
             '20-50Kg(Heavy)',
             '50Kg>(Vey heavy)',
           ]}
-          dropdownDefaultName="Select Weight"
+          dropdownDefaultNamer="Select Weight"
           onPress={(a: string) => console.log(a)}
         />
+        <View>
+          <TextInput
+            style={styles.textinput}
+            multiline={true}
+            placeholder="Description (Name/ condition of parcel)"
+            textAlignVertical="top"
+          />
+        </View>
         <CustomDropdown
-          buttonWidth="80%"
+          buttonWidth={wp('80%')}
           itemlist={[
             '0-(L)50cm / (B) 50cm (Small)',
             '50cm – (L) 80cm / (B) 80cm (Medium)',
@@ -93,17 +125,10 @@ const MtoMDrop: React.FC<{nav?: any}> = ({nav}) => {
             '122cm > (Very Large)',
           ]}
           onPress={(a: string) => console.log(a)}
-          dropdownDefaultName="Select Size"
+          dropdownDefaultName="Select Parcel Size"
         />
-        <View style={styles.TextInput}>
-          <TextInput
-            multiline={true}
-            placeholder="Description (Name/ condition of parcel)"
-            textAlignVertical="top"
-          />
-        </View>
         <CustomDropdown
-          buttonWidth="80%"
+          buttonWidth={wp('80%')}
           itemlist={[
             'High Values',
             'Fragile',
@@ -111,7 +136,7 @@ const MtoMDrop: React.FC<{nav?: any}> = ({nav}) => {
             'Electronics',
             'Others',
           ]}
-          dropdownDefaultName="Parcel Type"
+          dropdownDefaultName="Select Parcel Type"
           onPress={(a: string) => console.log(a)}
         />
         <View>
@@ -135,12 +160,10 @@ const MtoMDrop: React.FC<{nav?: any}> = ({nav}) => {
             </Text>
           </View>
         </View>
-        
         <Button
           width={wp('50%')}
           onPress={() => console.log('Press')}
-          btnStyle={styles.btn}
-        >
+          btnStyle={styles.btn}>
           SAVE & ADD PARCEL
         </Button>
       </ScrollView>
@@ -148,25 +171,22 @@ const MtoMDrop: React.FC<{nav?: any}> = ({nav}) => {
   );
 };
 
-export default MtoMDrop;
+export default MtoSDrop;
 
 const styles = StyleSheet.create({
-  TextInput: {
-    height: hp('12%'),
-    borderColor: 'white',
-    borderWidth: 1,
-    elevation: 5,
-    backgroundColor: 'white',
-    marginHorizontal: wp('9%'),
-    borderRadius: 20,
-    marginVertical: hp('1%'),
-    paddingHorizontal: wp('5%'),
-    marginTop: hp('2%'),
+  checkbox: {
+    padding: wp('3%'),
+    marginHorizontal: wp('5%'),
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderColor: '#fa892e',
+    flexDirection: 'row',
   },
   parcels: {
-    marginHorizontal: wp('10%'),
+    flex: 1,
+    marginHorizontal: wp('8%'),
     borderRadius: 15,
-    paddingVertical: '3%',
+    paddingVertical: hp('2%'),
     marginTop: hp('2%'),
     elevation: 4,
     backgroundColor: '#fff',
@@ -176,45 +196,100 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp('5%'),
     textAlignVertical: 'center',
   },
+  divider: {
+    marginHorizontal: wp('4%'),
+    marginVertical: '1%',
+    color: '#fa8832',
+    textAlign: 'center',
+  },
   smallinput: {
     borderColor: 'white',
     borderWidth: 1,
     elevation: 5,
     backgroundColor: 'white',
-    marginHorizontal: wp('10%'),
+    marginHorizontal: '9%',
     borderRadius: 20,
-    marginVertical: hp('1%'),
-    paddingVertical: hp('2%'),
+    paddingBottom: '4%',
+    paddingHorizontal: '4%',
+    marginTop:hp('2%')
+  },
+  textinput: {
+    marginHorizontal: wp('9%'),
+    elevation: 5,
+    flex: 1,
     paddingHorizontal: wp('5%'),
-    marginTop: hp('2%'),
+    borderColor: 'white',
+    borderRadius: 20,
+    paddingBottom: hp('5%'),
+    backgroundColor: 'white',
+    marginTop:hp('2%')
   },
-  checkbox: {
-    padding: wp('3%'),
-    marginHorizontal: '8%',
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    borderColor: '#fa892e',
-    flexDirection: 'row',
-  },
+
   checkboxText: {
-    fontSize: wp('3.8%'),
-    fontWeight: '400',
-    marginHorizontal: wp('4%'),
+    fontSize: wp('3.7%'),
+    fontWeight: '500',
+    padding: 5,
   },
   smalltext: {
-    fontSize: wp('3%'),
+    fontSize: 11,
     fontWeight: '500',
-    marginHorizontal: wp('4%'),
   },
   header: {
     fontSize: wp('4.5%'),
-    fontWeight: '500',
+    fontWeight: '600',
+    marginTop: hp('.2%'),
     marginHorizontal: wp('10%'),
-    marginTop: hp('2%'),
   },
-
-  autocomplete: {
-    marginHorizontal: '7%',
+  preferedtime: {
+    padding: 10,
+    marginTop: 10,
+    flexDirection: 'row',
+    marginHorizontal: 30,
+  },
+  preferedtime_text: {
+    fontSize: 15,
+    fontWeight: '700',
+    padding: 2,
+  },
+  preferedtime_text2: {
+    fontSize: 13,
+    fontWeight: '500',
+  },
+  prefered_time_text_container: {
+    marginHorizontal: 20,
+  },
+  preferedtime1: {
+    fontSize: 15,
+    fontWeight: '500',
+    padding: 2,
+    borderWidth: 1,
+    borderRadius: 17,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+  },
+  itemselected: {
+    backgroundColor: '#fa892e',
+    borderRadius: 17,
+    fontSize: 15,
+    fontWeight: '500',
+    padding: 2,
+    borderWidth: 1,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    color: 'white',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 5,
+  },
+  timeselection: {
+    borderColor: '#fa892e',
+    borderWidth: 1,
+    borderRadius: 20,
+    padding: 10,
+    marginHorizontal: 15,
+    marginVertical: 5,
   },
   location: {
     flex: 1,
@@ -236,8 +311,8 @@ const styles = StyleSheet.create({
     fontSize: wp('3%'),
     fontWeight: '700',
   },
-  btn:{
-    alignSelf:'center',
-    marginVertical:hp('2%')
-  }
+  btn: {
+    alignSelf: 'center',
+    marginVertical: hp('2%'),
+  },
 });
