@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: colors.primary.main,
     marginBottom: 40,
+    textAlign: 'center',
   },
 
   btn: {

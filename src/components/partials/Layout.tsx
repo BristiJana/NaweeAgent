@@ -8,6 +8,7 @@ type Props = {
   children: any;
   innerContainerStyle?: {[key: string]: string | number};
   navIcon?: any;
+  hideIcon?: boolean;
 };
 const Layout: React.FC<Props> = ({
   navigation,
@@ -15,10 +16,16 @@ const Layout: React.FC<Props> = ({
   children,
   innerContainerStyle,
   navIcon,
+  hideIcon,
 }) => {
   return (
     <View style={styles.container}>
-      <Nav icon={navIcon} heading={navHeading} navigation={navigation} />
+      <Nav
+        icon={navIcon}
+        heading={navHeading}
+        navigation={navigation}
+        hideIcon={hideIcon}
+      />
       <View style={{...styles.innerContainer, ...innerContainerStyle}}>
         {children}
       </View>
@@ -32,7 +39,6 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     paddingBottom: 50,
-    flex: 1,
   },
   innerContainer: {
     width: '80%',

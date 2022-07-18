@@ -1,13 +1,15 @@
 import Layout from '../components/partials/Layout';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import NotificationBell from '../components/icons/NotificationBell';
+import Wave from '../components/Wave';
+import {colors} from '../../assets/color';
 const img1 = require('../../assets/img/home-img-1.png');
 const img2 = require('../../assets/img/home-img-2.png');
 const img3 = require('../../assets/img/home-img-3.png');
 const img4 = require('../../assets/img/home-img-4.png');
-const waveImg = require('../../assets/img/wave.png');
-const whiteWaveImg = require('../../assets/img/white-wave.png');
+// const waveImg = require('../../assets/img/wave.png');
+// const whiteWaveImg = require('../../assets/img/white-wave.png');
 
 const data = [
   {
@@ -32,41 +34,38 @@ const data = [
   },
 ];
 
+const NotificationCount = () => {
+  return (
+    <View style={styles.notificationContainer}>
+      <Text style={styles.notificationCount}>3</Text>
+    </View>
+  );
+};
+
 const Home: React.FC<{navigation: any}> = ({navigation}) => {
   return (
-    <ScrollView>
-      <View style={styles.wave}>
-        <Image
-          style={{...styles.waveTop, ...styles.waveItem}}
-          source={waveImg}
-        />
-        <Image
-          style={{...styles.whiteWave, ...styles.waveItem}}
-          source={whiteWaveImg}
-        />
-      </View>
-
-      {/* <View style={{...styles.wave, ...styles.bottomWaveContainer}}>
-        <Image
-          style={{...styles.waveTop, ...styles.waveItem}}
-          source={waveImg}
-        />
-        <Image
-          style={{...styles.whiteWave, ...styles.waveItem}}
-          source={whiteWaveImg}
-        />
-      </View> */}
-
-      <Layout
-        navigation={navigation}
-        innerContainerStyle={styles.innerContainer}
-        navHeading="Home"
-        navIcon={<NotificationBell />}>
-        {/* image container */}
+    // <ScrollView>
+    <Layout
+      navigation={navigation}
+      innerContainerStyle={styles.innerContainer}
+      navHeading="Home"
+      navIcon={<NotificationBell />}>
+      {/* parcel container */}
+      <Wave waveStyle={{...styles.wave, ...styles.waveTop}} />
+      <Wave waveStyle={{...styles.wave, ...styles.waveBottom}} />
+      <View>
         <View style={styles.imgContainer}>
           {data.slice(0, 2).map((item, i) => {
             return (
-              <View style={styles.imgInnerContainer} key={i}>
+              <View
+                style={{
+                  ...styles.imgInnerContainer,
+                  marginRight:
+                    i === 0
+                      ? styles.imgInnerContainerMargin.marginRight
+                      : styles.noMargin.margin,
+                }}
+                key={i}>
                 <Image source={item.img} />
                 <Text style={styles.text}>{item.text}</Text>
               </View>
@@ -79,12 +78,14 @@ const Home: React.FC<{navigation: any}> = ({navigation}) => {
               <View style={styles.imgInnerContainer} key={i}>
                 <Image source={item.img} />
                 <Text style={styles.text}>{item.text}</Text>
+                {item.text.includes('Emergency') && <NotificationCount />}
               </View>
             );
           })}
         </View>
-      </Layout>
-    </ScrollView>
+      </View>
+    </Layout>
+    // </ScrollView>
   );
 };
 
@@ -92,7 +93,11 @@ export default Home;
 
 const styles = StyleSheet.create({
   innerContainer: {
-    marginTop: 170,
+    height: '95%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 9,
+    width: '100%',
   },
   imgContainer: {
     flexDirection: 'row',
@@ -102,6 +107,12 @@ const styles = StyleSheet.create({
   imgInnerContainer: {
     position: 'relative',
     alignItems: 'center',
+  },
+  imgInnerContainerMargin: {
+    marginRight: 13,
+  },
+  noMargin: {
+    margin: 0,
   },
   text: {
     fontSize: 16,
@@ -129,10 +140,27 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   waveTop: {
-    zIndex: 5,
-    height: '95%',
+    top: '-13%',
   },
-  whiteWave: {
-    top: -10,
+  waveBottom: {
+    transform: [{rotate: '180deg'}],
+    bottom: '-13%',
+  },
+
+  notificationContainer: {
+    width: 14,
+    height: 14,
+    backgroundColor: colors.danger,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 6,
+    right: 6,
+  },
+  notificationCount: {
+    fontSize: 10,
+    fontWeight: '400',
+    color: colors.white,
   },
 });

@@ -18,11 +18,11 @@ import {
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb2ba',
-    title: 'PAR678 (Cancelled)',
+    title: 'AWP678 (Cancelled)',
   },
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'PAR678 (Cancelled)',
+    title: 'AWP678 (Cancelled)',
   },
 ];
 

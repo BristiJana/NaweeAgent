@@ -12,13 +12,13 @@ const data = [
   {name: 'send parcel', img: img1},
   {name: 'recieved parcel', img: img2},
   {name: 'released parcel', img: img3},
-  {name: 'canelled parcel', img: img4},
+  {name: 'cancelled parcel', img: img4},
   {name: 'demmurage', img: img5},
 ];
 
 const ParcelRecord = () => {
   return (
-    <Layout navHeading="Home" navIcon={<NotificationBell />}>
+    <Layout navHeading="Sent Parcel" navIcon={<NotificationBell />}>
       {/* parcel record container */}
       <View style={styles.parcelRecordContainer}>
         {data.map((item, i) => {

@@ -1,43 +1,34 @@
 import {URLS} from './config';
 import axios from 'axios';
-import {boothInfoType} from '@/store/types/types';
-// import AsyncStorage from 'react-native';
-
-// import AsyncStorage from '@react-native-async-storage/async-storage';
-// import {AsyncStorage} from '@react-native-community/async-storage';
+import {extractSignUpFormType} from '../src/store/types/types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const headerData = async () => {
-  // const token: string = await AsyncStorage.getItem('token');
+  const token = await AsyncStorage.getItem('token');
   return {
     'Access-Control-Allow-Origin': '*',
-    // Authorization: 'Bearer ' + token,
+    Authorization: 'Bearer ' + token,
   };
 };
 
 const instance = axios.create({
   timeout: 30000,
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    // Authorization: 'Bearer ' + token,
-  },
-});
-
-instance.interceptors.request.use(config => {
-  const token = '';
-  config.headers.Authorization = 'Bearer ' + token;
-
-  return config;
+  headers: headerData(),
 });
 
 const responseBody = response => response;
 
-const errorBody = err => {
+export const errorBody = (err: {
+  response: {data: {message: string}; status: number};
+  request: string;
+  message: string;
+}) => {
   if (err.response) {
     // Request made and server responded
-    console.log('err.response', err.response);
+    console.log('err.response', err);
     return {
       message: err.response.data.message,
-      statusCode: err.response.status,
+      status: err.response.status,
     };
   } else if (err.request) {
     // The request was made but no response was received
@@ -53,17 +44,25 @@ const errorBody = err => {
 const requests = {
   get: (url: string, headers = {...headerData()}) =>
     instance.get(url, {headers}).then(responseBody).catch(errorBody),
-  post: (url: string, body: {}, headers = {...headerData}) =>
-    instance.post(url, body, {headers}).then(responseBody).catch(errorBody),
+  post: (
+    url: string,
+    body: {[key: string]: string | number},
+    headers = {...headerData},
+  ) => instance.post(url, body, {headers}).then(responseBody).catch(errorBody),
 
-  put: (url: string, body: {}, headers = {...headerData()}) =>
-    instance.put(url, body, {headers}).then(responseBody).catch(errorBody),
+  put: (
+    url: string,
+    body: {[key: string]: string | number},
+    headers = {...headerData()},
+  ) => instance.put(url, body, {headers}).then(responseBody).catch(errorBody),
 };
 
 export const Auth = {
   signIn: (data: {[key: string]: string | number}) =>
     requests.post(`${URLS.SIGN_IN}`, data),
-  signUp: (data: boothInfoType) => requests.post(`${URLS.SIGN_UP}`, data),
+
+  signUp: (data: {[key: string]: string | number}) =>
+    requests.post(`${URLS.SIGN_UP}`, data),
   sendBoothData: (data: {[key: string]: string | number}) =>
     requests.post(`${URLS.SEND_BOOTH_DATA}`, data),
 };

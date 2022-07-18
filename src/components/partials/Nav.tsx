@@ -1,6 +1,7 @@
 import {colors} from '../../../assets/color';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import BackArrowIcon from '../icons/BackArrowIcon';
 
 type Props = {
   heading: string;
@@ -19,15 +20,16 @@ const Nav: React.FC<Props> = ({
   return (
     <View style={{...styles.nav, ...navStyles}}>
       {hideIcon ? (
-        ''
+        <View />
       ) : (
-        <Text
-          style={styles.icon}
+        <TouchableOpacity
           onPress={() => {
             navigation.goBack();
           }}>
-          {'<'}
-        </Text>
+          <View>
+            <BackArrowIcon />
+          </View>
+        </TouchableOpacity>
       )}
       <Text style={styles.navHeading}>{heading}</Text>
       <View>{icon}</View>

@@ -1,6 +1,7 @@
 import {colors} from '../../../assets/color';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import UploadIcon from '../icons/UploadIcon';
 
 type Props = {
   docStyle?: {[key: string]: string | number};
@@ -11,7 +12,9 @@ const UploadDocument: React.FC<Props> = ({docStyle, fileType}) => {
     <View style={{...styles.documentContainer, ...docStyle}}>
       <Text style={styles.docHeading}>Upload Identity Document</Text>
       <View style={styles.docInnerContainer}>
-        <Text style={styles.cloudIcon}>Icon</Text>
+        <View style={styles.cloudIcon}>
+          <UploadIcon />
+        </View>
         <Text style={styles.imgFormatText}>
           {fileType ? fileType : '.PNG , .PDF , .JPG , DOC'}
         </Text>
